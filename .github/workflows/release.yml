@@ -31,7 +31,7 @@ jobs:
            id: meta
            uses: docker/metadata-action@v6
            with:
-              images: ${{ env.REGISTRY }}${{ github.repository_owner }}/packwiz-${{ matrix.image }}
+              images: ${{ env.REGISTRY }}/${{ github.repository_owner }}/packwiz-${{ matrix.image }}
               tags: |
                  type=raw,value=latest
                  type=sha,priority=250
