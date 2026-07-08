@@ -9,7 +9,10 @@ env:
    REGISTRY: ghcr.io
 
 jobs:
-   publish:
+   release:
+      strategy:
+         matrix:
+            image: ["server", "installer"]
       runs-on: ubuntu-latest
       permissions:
          packages: write
@@ -26,7 +29,7 @@ jobs:
            id: meta
            uses: docker/metadata-action@v6
            with:
-              images: ${{ env.REGISTRY }}/packwiz-server
+              images: ${{ env.REGISTRY }}${{ github.repository_owner }}/packwiz-${{ matrix.image }}
               tags: |
                  type=raw,value=latest
                  type=sha,priority=250
@@ -35,5 +38,6 @@ jobs:
            uses: docker/build-push-action@v7
            with:
               push: true
+              context: ./${{ matrix.image }}
               tags: ${{ steps.meta.outputs.tags }}
               labels: ${{ steps.meta.outputs.labels }}
