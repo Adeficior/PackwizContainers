@@ -1,0 +1,12 @@
+name = "example"
+version = "1.0.0"
+pack-format = "packwiz:1.1.0"
+
+[index]
+file = "index.toml"
+hash-format = "sha256"
+hash = "7e5781987a68b9d371d3a56ddff2ff06a48b28eda9ae3af19c9fcfce590b0836"
+
+[versions]
+minecraft = "26.2"
+neoforge = "26.2.0.8-beta"

@@ -1,0 +1,9 @@
+hash-format = "sha256"
+
+[[files]]
+file = "config/archive.zip"
+hash = "5e2f42e07613483fded36c3a28b23618fb6917967b7f5ec5faee55c3f5139f30"
+
+[[files]]
+file = "config/some_config.json"
+hash = "ddbd406ec7c1c684240fcbac36f2dcd51f785951431f06d2955861936aabc483"

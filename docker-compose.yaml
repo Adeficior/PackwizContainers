@@ -1,0 +1,16 @@
+name: packwiz-serve
+
+services:
+  server:
+    build: .
+    volumes:
+      - ./pack:/pack
+    ports: [8080:80]
+
+  installer:
+    image: ghcr.io/pssbletrngle/packwiz-install:main
+    volumes:
+      - ./install:/data
+    depends_on: [server]
+    environment:
+      PACKWIZ_URL: http://server
